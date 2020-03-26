@@ -13,17 +13,15 @@ def parsed(x):
 	symset.add(')')
 	symset.add('\"')
 	symset.add('.')
-
-	for y in x:
-		if ((y >= 'a' and y <= 'z') or (y >= 'A' and y <= 'Z') or y in symset) == False:
-			return x
 	ret = ""
 	for y in x:
 		if y <= 'z' and y >= 'a':
 			ret = ret + y
 		elif y <= 'Z' and y >= 'A':
 			ret = ret + chr(ord(y) + 32)
-		elif not y in symset:
+		elif y in symset:
+			pass
+		else:
 			ret = ret + y
 	return ret
 
